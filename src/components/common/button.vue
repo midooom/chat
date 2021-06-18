@@ -15,8 +15,8 @@
     &--orange
       background-color $orange
 </style>
-<template functional>
-  <button class="dd-button" :class="[$options.classObject(props)]">{{ props.action }}</button>
+<template>
+  <button class="dd-button" @click="onClick()" :class="classObject()">{{ action }}</button>
 </template>
 <script>
 
@@ -40,11 +40,16 @@ export default {
       default: false
     }
   },
-  classObject (props) {
-    return {
-      'dd-button--disabled': props.disabled,
-      'dd-button--blue': props.blue,
-      'dd-button--orange': props.orange
+  methods: {
+    classObject () {
+      return {
+        'dd-button--disabled': this.disabled,
+        'dd-button--blue': this.blue,
+        'dd-button--orange': this.orange
+      }
+    },
+    onClick () {
+      this.$emit('click')
     }
   }
 }

@@ -14,11 +14,11 @@
 <template>
   <Row class="input-message">
     <Col xs8>
-      <input class="input-message__input" :placeholder="placeHolder" :value="value" />
+      <input class="input-message__input" :placeholder="placeHolder" v-model="value" @keyup.enter="submit" />
     </Col>
     <Col xs1 />
     <Col xs2>
-      <Button :action="buttonAction" orange />
+      <Button :action="buttonAction" orange @click="submit" />
     </Col>
   </Row>
 </template>
@@ -34,10 +34,15 @@ export default {
     buttonAction: {
       type: String,
       default: ''
-    },
-    value: {
-      type: String,
-      default: ''
+    }
+  },
+  data: () => ({
+    value: ''
+  }),
+  methods: {
+    submit() {
+      this.$emit('message', this.value)
+      this.value = ''
     }
   }
 }

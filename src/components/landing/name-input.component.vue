@@ -6,7 +6,7 @@
 </style>
 
 <template>
-  <input type="text" class="name-input" v-model="username" :placeholder="placeHolder" required />
+  <input type="text" class="name-input" :value="value" :placeholder="placeHolder"  @input="onInput" @keyup.enter="submit" required />
 </template>
 <script>
 
@@ -16,10 +16,20 @@ export default {
     placeHolder: {
       type: String,
       default: ''
+    },
+    value: {
+      type: String,
+      default: ''
     }
   },
-  data: () => ({
-    username: ''
-  })
+  methods: {
+    onInput(event) {
+      const value = event.target.value
+      this.$emit('input', value)
+    },
+    submit() {
+      this.$emit('submit')
+    }
+  }
 }
 </script>
