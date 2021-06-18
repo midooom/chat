@@ -8,8 +8,8 @@
 
 <template>
   <div class="message-container">
-    <Message class="message-container__message"
-    v-for="(message, i) in messages" :key="i" :author="message.author" :content="message.content"
+    <Message v-for="(message, i) in messages" :key="i"
+     class="message-container__message" :author="message.author" :content="message.message"
     :timestamp="message.timestamp" :mine="message.mine" />
   </div>
 </template>

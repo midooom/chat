@@ -40,7 +40,7 @@ export default {
     value: ''
   }),
   methods: {
-    submit() {
+    submit () {
       this.$emit('message', this.value)
       this.value = ''
     }

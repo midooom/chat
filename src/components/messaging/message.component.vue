@@ -9,6 +9,7 @@
     border-radius: 4px;
     box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0
     position relative
+    clear both
     &:before
       content ''
       position absolute

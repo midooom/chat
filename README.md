@@ -2,7 +2,11 @@
 
 > FE tech challenge
 
+## IMPORTANT
+ First set the token inside https://github.com/midooom/chat/blob/master/config/dev.env.js#L7
+ If the token is `ABC` we should set it as `TOKEN: '"ABC"'`
 ## Build Setup
+
 
 ``` bash
 # install dependencies

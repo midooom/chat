@@ -3,6 +3,6 @@ export default {
     return state.username
   },
   getMessages: (state) => {
-    return state.messages.map(message => ({...message, mine: message.author === state.username}))
+    return state.messages.map(message => ({...message, mine: message.author === state.username, timestamp: new Date(message.timestamp).toISOString()}))
   }
 }

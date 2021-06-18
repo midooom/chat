@@ -23,11 +23,11 @@ export default {
     }
   },
   methods: {
-    onInput(event) {
+    onInput (event) {
       const value = event.target.value
       this.$emit('input', value)
     },
-    submit() {
+    submit () {
       this.$emit('submit')
     }
   }

@@ -16,16 +16,13 @@ import InputMessage from '@/components/messaging/input-message.component'
 export default {
   components: {MessageContainer, InputMessage},
   name: 'MessagingPage',
-  data: () => ({
-    messages: [
-      {author: 'mouafa', content: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum', timestamp: 'Tues 09:40'},
-      {author: 'mouafa', content: 'lorem ipsum', timestamp: 'Tues 09:40', mine: true}
-    ]
-  }),
-  computed: mapGetters({username: 'getUsername'}),
-  methods: mapActions({send: 'sendMessage'}),
-  created() {
+  computed: mapGetters({username: 'getUsername', messages: 'getMessages'}),
+  methods: mapActions({send: 'sendMessage', loadMessages: 'loadMessages'}),
+  created () {
     if (!this.username) this.$router.push('/')
+  },
+  mounted () {
+    this.loadMessages()
   }
 }
 </script>

@@ -1,3 +1,4 @@
+import { listAllMessages, sendMessage } from '@/services/message'
 export default {
   setUsername: ({ commit }, username) => {
     commit('setUsername', username)
@@ -5,15 +6,14 @@ export default {
 
   loadMessages: async ({ commit }) => {
     // api call here to load messages
-    const messages = []
+    const {data: messages} = await listAllMessages({})
     commit('loadMessages', messages)
   },
 
-  sendMessage: async ({ dispatch, state }, content) => {
+  sendMessage: async ({ dispatch, state }, message) => {
     const author = state.username
-    const timestamp = Date.now()
-    const message = { author, content, timestamp }
-    // api call here
+    const content = { author, message }
+    await sendMessage(content)
     // load messages
     dispatch('loadMessages')
   }

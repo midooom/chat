@@ -27,7 +27,7 @@ export default {
     username: ''
   }),
   methods: {
-    submit() {
+    submit () {
       this.$store.dispatch('setUsername', this.username)
       this.$router.push('/messaging')
     }
