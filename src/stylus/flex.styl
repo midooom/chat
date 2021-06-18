@@ -1,0 +1,41 @@
+@require './_vars'
+
+flex-mixin()
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  align-items: flex-start
+
+  &&--grow
+    flex-grow: 1
+
+  &&--column
+    flex-direction: column
+
+  &&--justify-center
+    justify-content: center
+
+  &&--justify-end
+    justify-content: flex-end
+
+  &&--justify-space-around
+    justify-content: space-around
+
+  &&--justify-space-between
+    justify-content: space-between
+
+  &&--justify-space-evenly
+    justify-content: space-around
+    justify-content: space-evenly
+
+  &&--justify-space-evenly &&--justify-space-evenly
+    justify-content: space-around
+
+  &&--align-center
+    align-items: center
+
+  &&--align-end
+    align-items: flex-end
+
+  &&--align-stretch
+    align-items: stretch
